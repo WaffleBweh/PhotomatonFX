@@ -35,5 +35,17 @@ namespace Photomaton
             }
             return num1 * num2;
         }
+
+        public static int PowerOfTwo(this int a)
+        {
+            int result = 0;
+
+            for (; a > 1; a /= 2)
+            {
+                result++;
+            }
+
+            return result;
+        }
     }
 }

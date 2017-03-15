@@ -39,6 +39,7 @@
             this.lbEffects = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.stepTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblStepCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbSrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDest)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,6 @@
             this.pbSrc.Location = new System.Drawing.Point(12, 33);
             this.pbSrc.Name = "pbSrc";
             this.pbSrc.Size = new System.Drawing.Size(256, 256);
-            this.pbSrc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSrc.TabIndex = 0;
             this.pbSrc.TabStop = false;
             // 
@@ -61,7 +61,6 @@
             this.pbDest.Location = new System.Drawing.Point(302, 33);
             this.pbDest.Name = "pbDest";
             this.pbDest.Size = new System.Drawing.Size(256, 256);
-            this.pbDest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDest.TabIndex = 1;
             this.pbDest.TabStop = false;
             // 
@@ -139,11 +138,21 @@
             this.stepTimer.Interval = 16;
             this.stepTimer.Tick += new System.EventHandler(this.stepTimer_Tick);
             // 
+            // lblStepCount
+            // 
+            this.lblStepCount.Location = new System.Drawing.Point(487, 9);
+            this.lblStepCount.Name = "lblStepCount";
+            this.lblStepCount.Size = new System.Drawing.Size(71, 21);
+            this.lblStepCount.TabIndex = 10;
+            this.lblStepCount.Text = "Step : 0 / 0";
+            this.lblStepCount.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 334);
+            this.ClientSize = new System.Drawing.Size(786, 332);
+            this.Controls.Add(this.lblStepCount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbEffects);
             this.Controls.Add(this.btnStep);
@@ -178,6 +187,7 @@
         private System.Windows.Forms.ListBox lbEffects;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer stepTimer;
+        private System.Windows.Forms.Label lblStepCount;
     }
 }
 

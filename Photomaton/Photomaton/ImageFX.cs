@@ -12,7 +12,7 @@ namespace Photomaton
     public abstract class ImageFX
     {
         public abstract void step(TransformedImage srcImg);
-        public abstract int getMaxSteps();
+        public abstract int getMaxSteps(int w, int h);
         public abstract override string ToString();
     }
 }

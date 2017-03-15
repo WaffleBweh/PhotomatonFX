@@ -15,6 +15,8 @@ namespace Photomaton
         bool isPlaying = false;
         TransformedImage transformedImage;
         List<ImageFX> imageEffectsList;
+        int currentStep = 0;
+        int maxStep = 0;
 
         public MainView()
         {
@@ -31,6 +33,9 @@ namespace Photomaton
             {
                 lbEffects.Items.Add(effect.ToString());
             }
+
+            // Select the first one by default
+            lbEffects.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -80,6 +85,12 @@ namespace Photomaton
                     // When the image has been chosen, enable controls
                     btnStep.Enabled = true;
                     btnPlayPause.Enabled = true;
+
+                    // Create our transform image from the picturebox and get the effect from the listbox
+                    transformedImage = new TransformedImage(pbDest.Image, imageEffectsList[lbEffects.SelectedIndex]);
+
+                    // Update the step count
+                    UpdateStep();
                 }
             }
         }
@@ -92,7 +103,15 @@ namespace Photomaton
         /// <param name="e"></param>
         private void stepTimer_Tick(object sender, EventArgs e)
         {
+            // Click on the step button
+            btnStep_Click(sender, e);
 
+            // We stop when we reach the end
+            if (currentStep == maxStep - 1)
+            {
+                btnStep_Click(sender, e);
+                btnPlayPause_Click(sender, e);
+            }
         }
 
         /// <summary>
@@ -102,8 +121,31 @@ namespace Photomaton
         /// <param name="e"></param>
         private void btnStep_Click(object sender, EventArgs e)
         {
-            // Create our transform image from the picturebox and get the effect from the listbox
+            // Update our transform image from the picturebox and get the effect from the listbox
             transformedImage = new TransformedImage(pbDest.Image, imageEffectsList[lbEffects.SelectedIndex]);
+
+            // Step
+            transformedImage.step();
+
+            // Show the result
+            pbDest.Image = transformedImage.Image;
+
+            // Change the step count
+            // Increment by one and reset when we reach the max amount
+            currentStep = (currentStep + 1) % maxStep;
+            UpdateStep();
+        }
+
+        /// <summary>
+        /// Updates the step value at the top of the page
+        /// </summary>
+        private void UpdateStep()
+        {
+            // Get the max step
+            maxStep = transformedImage.ImageHelper.getMaxSteps(pbDest.Image.Width, pbDest.Image.Height);
+            
+            // Draw the count
+            lblStepCount.Text = String.Format("Step : {0}/{1}", currentStep, maxStep);
         }
     }
 }
