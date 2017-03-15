@@ -25,6 +25,12 @@ namespace Photomaton
 
             // Add some effects
             imageEffectsList.Add(new Photomaton());
+
+            // Add them to the list
+            foreach (ImageFX effect in imageEffectsList)
+            {
+                lbEffects.Items.Add(effect.ToString());
+            }
         }
 
         /// <summary>

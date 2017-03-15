@@ -23,7 +23,16 @@ namespace Photomaton
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns the class name as string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
+        {
+            return this.GetType().Name;
+        }
+
+        public override int getMaxSteps()
         {
             throw new NotImplementedException();
         }
