@@ -1,1 +1,10 @@
 C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonEffect\PhotomatonEffect\Photomaton\Photomaton\bin\Debug\Photomaton.exe.config
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\bin\Debug\Photomaton.exe.config
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\obj\Debug\Photomaton.csprojResolveAssemblyReference.cache
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\obj\Debug\Photomaton.MainView.resources
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\obj\Debug\Photomaton.Properties.Resources.resources
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\obj\Debug\Photomaton.csproj.GenerateResource.Cache
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\bin\Debug\Photomaton.exe
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\bin\Debug\Photomaton.pdb
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\obj\Debug\Photomaton.exe
+C:\Users\SEEMULLERJ_INFO\Desktop\PhotomatonFX\Photomaton\Photomaton\obj\Debug\Photomaton.pdb
