@@ -10,6 +10,7 @@ namespace Photomaton
     {
         /// <summary>
         /// Find the lowest common multiple of two numbers
+        /// usage : myInteger.lcm(myOtherInteger)
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -36,6 +37,12 @@ namespace Photomaton
             return num1 * num2;
         }
 
+        /// <summary>
+        /// Returns the power of two of the current number
+        /// usage : myInteger.PowerOfTwo()
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static int PowerOfTwo(this int a)
         {
             int result = 0;

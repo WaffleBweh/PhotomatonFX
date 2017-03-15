@@ -22,18 +22,18 @@ namespace Photomaton
         public override void step(TransformedImage srcImg)
         {
             // Make a temporary copy of our image as a bitmap
-            Bitmap tmp = new Bitmap(srcImg.Image);
+            Bitmap tmp = (Bitmap)srcImg.Image.Clone();
             // The image we will actually draw on
             Bitmap result = new Bitmap(srcImg.Image.Width, srcImg.Image.Height);
 
             // Create an offset value
-            int offset = tmp.Width / 2;
+            int halfWidth = tmp.Width / 2;
 
             // Get the coordinates of each of the four points to draw the image
             Point topLeft = new Point(0, 0);
-            Point topRight = new Point(offset, 0);
-            Point botLeft = new Point(0, offset);
-            Point botRight = new Point(offset, offset);
+            Point topRight = new Point(halfWidth, 0);
+            Point botLeft = new Point(0, halfWidth);
+            Point botRight = new Point(halfWidth, halfWidth);
 
             // Go through every second pixel of the image (divide the size by two)
             for (int x = 0; x < tmp.Width; x += 2)

@@ -73,7 +73,7 @@ namespace Photomaton
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
                 dlg.Title = "Open Image";
-                dlg.Filter = "bitmap image (*.bmp)|*.bmp";
+                dlg.Filter = "BMP, PNG, JPG (*.bmp, *.png, *.jpg)|*.bmp;*.jpg;*.png";
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -109,7 +109,6 @@ namespace Photomaton
             // We stop when we reach the end
             if (currentStep == maxStep - 1)
             {
-                btnStep_Click(sender, e);
                 btnPlayPause_Click(sender, e);
             }
         }
