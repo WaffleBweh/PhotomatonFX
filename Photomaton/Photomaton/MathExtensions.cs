@@ -54,5 +54,19 @@ namespace Photomaton
 
             return result;
         }
+
+        /// <summary>
+        /// Forces a number between a set range
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="inclusiveMinimum"></param>
+        /// <param name="inclusiveMaximum"></param>
+        /// <returns></returns>
+        public static int LimitToRange(this int value, int inclusiveMinimum, int inclusiveMaximum)
+        {
+            if (value < inclusiveMinimum) { return inclusiveMinimum; }
+            if (value > inclusiveMaximum) { return inclusiveMaximum; }
+            return value;
+        }
     }
 }

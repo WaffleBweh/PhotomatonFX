@@ -123,6 +123,7 @@
             this.lbEffects.ScrollAlwaysVisible = true;
             this.lbEffects.Size = new System.Drawing.Size(171, 251);
             this.lbEffects.TabIndex = 8;
+            this.lbEffects.SelectedIndexChanged += new System.EventHandler(this.lbEffects_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -140,9 +141,10 @@
             // 
             // lblStepCount
             // 
-            this.lblStepCount.Location = new System.Drawing.Point(487, 9);
+            this.lblStepCount.AutoSize = true;
+            this.lblStepCount.Location = new System.Drawing.Point(497, 17);
             this.lblStepCount.Name = "lblStepCount";
-            this.lblStepCount.Size = new System.Drawing.Size(71, 21);
+            this.lblStepCount.Size = new System.Drawing.Size(61, 13);
             this.lblStepCount.TabIndex = 10;
             this.lblStepCount.Text = "Step : 0 / 0";
             this.lblStepCount.TextAlign = System.Drawing.ContentAlignment.BottomRight;

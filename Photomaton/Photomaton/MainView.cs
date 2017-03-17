@@ -17,6 +17,7 @@ namespace Photomaton
         List<ImageFX> imageEffectsList;
         int currentStep = 0;
         int maxStep = 0;
+        bool hasSelectedImage = false;
 
         public MainView()
         {
@@ -27,8 +28,16 @@ namespace Photomaton
 
             // Add some effects
             imageEffectsList.Add(new Photomaton());
+            imageEffectsList.Add(new BinaryMixture());
+            imageEffectsList.Add(new InX());
+            imageEffectsList.Add(new DoubleRotation());
+            //imageEffectsList.Add(new Baker()); Not fully implemented
+            //imageEffectsList.Add(new Spiral()); Not fully implemented
 
-            // Add them to the list
+            // Sort the list
+            imageEffectsList.Sort();
+
+            // Add them to the listbox
             foreach (ImageFX effect in imageEffectsList)
             {
                 lbEffects.Items.Add(effect.ToString());
@@ -89,6 +98,9 @@ namespace Photomaton
                     // Create our transform image from the picturebox and get the effect from the listbox
                     transformedImage = new TransformedImage(pbDest.Image, imageEffectsList[lbEffects.SelectedIndex]);
 
+                    // Change the flag
+                    hasSelectedImage = true;
+
                     // Update the step count
                     UpdateStep();
                 }
@@ -103,14 +115,14 @@ namespace Photomaton
         /// <param name="e"></param>
         private void stepTimer_Tick(object sender, EventArgs e)
         {
-            // Click on the step button
-            btnStep_Click(sender, e);
-
             // We stop when we reach the end
             if (currentStep == maxStep - 1)
             {
                 btnPlayPause_Click(sender, e);
             }
+
+            // Click on the step button
+            btnStep_Click(sender, e);
         }
 
         /// <summary>
@@ -145,6 +157,23 @@ namespace Photomaton
             
             // Draw the count
             lblStepCount.Text = String.Format("Step : {0}/{1}", currentStep, maxStep);
+        }
+
+        /// <summary>
+        /// Change the current image fx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbEffects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            transformedImage = new TransformedImage(pbDest.Image, imageEffectsList[lbEffects.SelectedIndex]);
+
+            if (hasSelectedImage)
+            {
+                pbDest.Image = pbSrc.Image;
+                currentStep = 0;
+                UpdateStep();
+            }
         }
     }
 }

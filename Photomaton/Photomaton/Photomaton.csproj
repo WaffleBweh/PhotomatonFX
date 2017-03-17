@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Spiral.cs" />
+    <Compile Include="DoubleRotation.cs" />
+    <Compile Include="Baker.cs" />
+    <Compile Include="InX.cs" />
     <Compile Include="MathExtensions.cs" />
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
@@ -52,6 +56,7 @@
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageFX.cs" />
+    <Compile Include="BinaryMixture.cs" />
     <Compile Include="Photomaton.cs" />
     <Compile Include="TransformedImage.cs" />
     <Compile Include="Program.cs" />

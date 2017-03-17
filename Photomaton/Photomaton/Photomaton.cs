@@ -35,23 +35,26 @@ namespace Photomaton
             Point botLeft = new Point(0, halfWidth);
             Point botRight = new Point(halfWidth, halfWidth);
 
-            // Go through every second pixel of the image (divide the size by two)
+            // Go through every second pixel of the image
             for (int x = 0; x < tmp.Width; x += 2)
             {
                 for (int y = 0; y < tmp.Height; y += 2)
                 {
-                    // Get the current offset values
+                    // Get the four current pixels
+                    Color topLeftPixel = tmp.GetPixel(x, y);
+                    Color topRightPixel = tmp.GetPixel(x + 1, y);
+                    Color botLeftPixel = tmp.GetPixel(x, y + 1);
+                    Color botRightPixel = tmp.GetPixel(x + 1, y + 1);
+
+                    // Get the current offset values (half the width and height)
                     int offsetX = x / 2;
                     int offsetY = y / 2;
 
-                    // Get the current pixel
-                    Color currentPixel = tmp.GetPixel(x, y);
-
-                    // Paste it to the correct locations on our result image
-                    result.SetPixel(topLeft.X + offsetX, topLeft.Y + offsetY, currentPixel);
-                    result.SetPixel(topRight.X + offsetX, topRight.Y + offsetY, currentPixel);
-                    result.SetPixel(botLeft.X + offsetX, botLeft.Y + offsetY, currentPixel);
-                    result.SetPixel(botRight.X + offsetX, botRight.Y + offsetY, currentPixel);
+                    // Paste the pixels to the correct location
+                    result.SetPixel(topLeft.X + offsetX, topLeft.Y + offsetY, topLeftPixel);
+                    result.SetPixel(topRight.X + offsetX, topRight.Y + offsetY, topRightPixel);
+                    result.SetPixel(botLeft.X + offsetX, botLeft.Y + offsetY, botLeftPixel);
+                    result.SetPixel(botRight.X + offsetX, botRight.Y + offsetY, botRightPixel);
                 }
             }
 
@@ -59,21 +62,13 @@ namespace Photomaton
             srcImg.Image = result;
         }
 
-        /// <summary>
-        /// Returns the class name as string
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return this.GetType().Name;
-        }
 
         public override int getMaxSteps(int w, int h)
         {
-            int wPow = w.PowerOfTwo();
-            int hPow = h.PowerOfTwo();
+            int newW = w.PowerOfTwo();
+            int newH = h.PowerOfTwo();
 
-            return wPow.lcm(hPow);
+            return newW.lcm(newH);
         }
         #endregion
     }
